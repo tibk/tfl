@@ -1,0 +1,8 @@
+flake8==3.5.0
+flake8-import-order==0.14.2
+gitpython==2.1.8
+pep8-naming==0.5.0
+pytest==3.4.2
+pytest-cov==2.5.1
+ipdb==0.11
+
