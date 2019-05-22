@@ -111,28 +111,26 @@ def get_nb_stops(departure, arrival, graph):
             raise UnreachableStation
 
 
-def main(skip_file_processing, sample_files, render_graph):
+def main(skip_file_processing, sample_files):
     xml_files = get_xml_files(ZIP_PATH, UNZIPED_FOLDER, skip_file_processing=skip_file_processing)
     stops_list = get_all_stops(xml_files, sample_files)
-    get_viz_graph(stops_list, VIZ_FILEPATH, render_graph=render_graph)
+    get_viz_graph(stops_list, VIZ_FILEPATH)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        'render_graph',
-        help='1 to generate graph viz, 0 otherwise. Warning this takes time.',
-    )
     parser.add_argument(
         '--sample_files',
         default=None,
         help='Set to process limited number of xml files',
     )
     parser.add_argument(
-        '--skip_file_processing', action='store_true', help='Use if xml files have been extracted already',
+        '--skip_file_processing',
+        action='store_true',
+        help='Use if xml files have been extracted already',
     )
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO)
 
-    main(args.skip_file_processing, args.sample_files, args.render_graph)
+    main(args.skip_file_processing, args.sample_files)
