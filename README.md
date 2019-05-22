@@ -12,7 +12,7 @@
   make test
 ```
 
-# Use
+## Use
 ```
   PYTHONPATH=.:vendors python core/main.py --help
 ```
